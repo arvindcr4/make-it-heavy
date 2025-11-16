@@ -6,7 +6,7 @@ zenmux:
   # IMPORTANT: When selecting a model, ensure it has a high context window (200k+ tokens recommended)
   # The orchestrator can generate large amounts of results from multiple agents that need to be
   # processed together during synthesis. Low context window models may fail or truncate results.
-  model: "moonshotai/kimi-k2"
+  model: "volcengine/doubao-seed-code"
 
 # System prompt for the agent
 system_prompt: |
