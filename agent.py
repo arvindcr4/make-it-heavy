@@ -3,7 +3,7 @@ import yaml
 from openai import OpenAI
 from tools import discover_tools
 
-class OpenRouterAgent:
+class ZenMuxAgent:
     def __init__(self, config_path="config.yaml", silent=False):
         # Load configuration
         with open(config_path, 'r') as f:
@@ -12,27 +12,27 @@ class OpenRouterAgent:
         # Silent mode for orchestrator (suppresses debug output)
         self.silent = silent
         
-        # Initialize OpenAI client with OpenRouter
+        # Initialize OpenAI client with ZenMux
         self.client = OpenAI(
-            base_url=self.config['openrouter']['base_url'],
-            api_key=self.config['openrouter']['api_key']
+            base_url=self.config['zenmux']['base_url'],
+            api_key=self.config['zenmux']['api_key']
         )
         
         # Discover tools dynamically
         self.discovered_tools = discover_tools(self.config, silent=self.silent)
         
-        # Build OpenRouter tools array
-        self.tools = [tool.to_openrouter_schema() for tool in self.discovered_tools.values()]
+        # Build ZenMux tools array
+        self.tools = [tool.to_zenmux_schema() for tool in self.discovered_tools.values()]
         
         # Build tool mapping
         self.tool_mapping = {name: tool.execute for name, tool in self.discovered_tools.items()}
     
     
     def call_llm(self, messages):
-        """Make OpenRouter API call with tools"""
+        """Make ZenMux API call with tools"""
         try:
             response = self.client.chat.completions.create(
-                model=self.config['openrouter']['model'],
+                model=self.config['zenmux']['model'],
                 messages=messages,
                 tools=self.tools
             )
@@ -86,7 +86,7 @@ class OpenRouterAgent:
         # Track all assistant responses for full content capture
         full_response_content = []
         
-        # Implement agentic loop from OpenRouter docs
+        # Implement agentic loop from ZenMux docs
         max_iterations = self.config.get('agent', {}).get('max_iterations', 10)
         iteration = 0
         
