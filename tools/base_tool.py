@@ -7,19 +7,19 @@ class BaseTool(ABC):
     @property
     @abstractmethod
     def name(self) -> str:
-        """Tool name for OpenRouter function calling"""
+        """Tool name for ZenMux function calling"""
         pass
     
     @property
     @abstractmethod
     def description(self) -> str:
-        """Tool description for OpenRouter"""
+        """Tool description for ZenMux"""
         pass
     
     @property
     @abstractmethod
     def parameters(self) -> Dict[str, Any]:
-        """OpenRouter function parameters schema"""
+        """ZenMux function parameters schema"""
         pass
     
     @abstractmethod
@@ -27,8 +27,8 @@ class BaseTool(ABC):
         """Execute the tool with given parameters"""
         pass
     
-    def to_openrouter_schema(self) -> Dict[str, Any]:
-        """Convert tool to OpenRouter function schema"""
+    def to_zenmux_schema(self) -> Dict[str, Any]:
+        """Convert tool to ZenMux function schema"""
         return {
             "type": "function",
             "function": {

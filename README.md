@@ -1,10 +1,10 @@
 # 🚀 Make It heavy
 
-A Python framework to emulate **Grok heavy** functionality using a powerful multi-agent system. Built on OpenRouter's API, Make It heavy delivers comprehensive, multi-perspective analysis through intelligent agent orchestration.
+A Python framework to emulate **SeedCode heavy** functionality using a powerful multi-agent system. Built on ZenMux's API, Make It heavy delivers comprehensive, multi-perspective analysis through intelligent agent orchestration.
 
 ## 🌟 Features
 
-- **🧠 Grok heavy Emulation**: Multi-agent system that delivers deep, comprehensive analysis like Grok heavy mode
+- **🧠 SeedCode heavy Emulation**: Multi-agent system that delivers deep, comprehensive analysis like SeedCode heavy mode
 - **🔀 Parallel Intelligence**: Deploy 4 specialized agents simultaneously for maximum insight coverage
 - **🎯 Dynamic Question Generation**: AI creates custom research questions tailored to each query
 - **⚡ Real-time Orchestration**: Live visual feedback during multi-agent execution
@@ -18,7 +18,7 @@ A Python framework to emulate **Grok heavy** functionality using a powerful mult
 
 - Python 3.8+
 - [uv](https://github.com/astral-sh/uv) (recommended Python package manager)
-- OpenRouter API key
+- ZenMux API key
 
 ### Installation
 
@@ -41,7 +41,7 @@ uv pip install -r requirements.txt
 
 3. **Configure API key:**
 ```bash
-# Edit config.yaml and replace YOUR API KEY HERE with your OpenRouter API key
+# Edit config.yaml and replace YOUR API KEY HERE with your ZenMux API key
 ```
 
 ## 🎯 Usage
@@ -66,9 +66,9 @@ User: Research the latest developments in AI and summarize them
 Agent: [Uses search tool, analyzes results, provides summary]
 ```
 
-### Grok heavy Mode (Multi-Agent Orchestration)
+### SeedCode heavy Mode (Multi-Agent Orchestration)
 
-Emulate Grok heavy's deep analysis with 4 parallel intelligent agents:
+Emulate SeedCode heavy's deep analysis with 4 parallel intelligent agents:
 
 ```bash
 uv run make_it_heavy.py
@@ -78,7 +78,7 @@ uv run make_it_heavy.py
 1. **🎯 AI Question Generation**: Creates 4 specialized research questions from your query
 2. **🔀 Parallel Intelligence**: Runs 4 agents simultaneously with different analytical perspectives
 3. **⚡ Live Progress**: Shows real-time agent status with visual progress bars
-4. **🔄 Intelligent Synthesis**: Combines all perspectives into one comprehensive Grok heavy-style answer
+4. **🔄 Intelligent Synthesis**: Combines all perspectives into one comprehensive SeedCode heavy-style answer
 
 **Example Flow:**
 ```
@@ -90,7 +90,7 @@ AI Generated Questions:
 - Agent 3: "Find alternative perspectives on Pietro Schirano's work and impact"
 - Agent 4: "Verify and cross-check information about Pietro Schirano's current role"
 
-Result: Grok heavy-style comprehensive analysis combining all agent perspectives
+Result: SeedCode heavy-style comprehensive analysis combining all agent perspectives
 ```
 
 ## 🏗️ Architecture
@@ -147,10 +147,10 @@ graph TD
 Edit `config.yaml` to customize behavior:
 
 ```yaml
-# OpenRouter API settings
-openrouter:
+# ZenMux API settings
+zenmux:
   api_key: "YOUR KEY"
-  base_url: "https://openrouter.ai/api/v1"
+  base_url: "https://zenmux.ai/api/v1"
   model: "openai/gpt-4.1-mini"  # Change model here
 
 # Agent settings
@@ -173,7 +173,7 @@ orchestrator:
 # Tool settings
 search:
   max_results: 5
-  user_agent: "Mozilla/5.0 (compatible; OpenRouter Agent)"
+  user_agent: "Mozilla/5.0 (compatible; ZenMux Agent)"
 ```
 
 ## 🔧 Development
@@ -215,10 +215,10 @@ class MyCustomTool(BaseTool):
 
 ### Customizing Models
 
-Supports any OpenRouter-compatible model:
+Supports any ZenMux-compatible model:
 
 ```yaml
-openrouter:
+zenmux:
   model: "anthropic/claude-3.5-sonnet"     # For complex reasoning
   model: "openai/gpt-4.1-mini"             # For cost efficiency  
   model: "google/gemini-2.0-flash-001"     # For speed
@@ -234,7 +234,7 @@ orchestrator:
   parallel_agents: 6  # Run 6 agents instead of 4
 ```
 
-**Note**: Make sure your OpenRouter plan supports the concurrent usage!
+**Note**: Make sure your ZenMux plan supports the concurrent usage!
 
 ## 🎮 Examples
 
@@ -243,7 +243,7 @@ orchestrator:
 User: "Analyze the impact of AI on software development in 2024"
 
 Single Agent: Comprehensive research report
-Grok heavy Mode: 4 specialized perspectives combined into deep, multi-faceted analysis
+SeedCode heavy Mode: 4 specialized perspectives combined into deep, multi-faceted analysis
 ```
 
 ### Technical Question  
@@ -251,7 +251,7 @@ Grok heavy Mode: 4 specialized perspectives combined into deep, multi-faceted an
 User: "How do I optimize a React application for performance?"
 
 Single Agent: Step-by-step optimization guide
-Grok heavy Mode: Research + Analysis + Alternatives + Verification = Complete expert guide
+SeedCode heavy Mode: Research + Analysis + Alternatives + Verification = Complete expert guide
 ```
 
 ### Creative Task
@@ -259,7 +259,7 @@ Grok heavy Mode: Research + Analysis + Alternatives + Verification = Complete ex
 User: "Create a business plan for an AI startup"
 
 Single Agent: Structured business plan
-Grok heavy Mode: Market research + Financial analysis + Competitive landscape + Risk assessment
+SeedCode heavy Mode: Market research + Financial analysis + Competitive landscape + Risk assessment
 ```
 
 ## 🛠️ Troubleshooting
@@ -269,7 +269,7 @@ Grok heavy Mode: Market research + Financial analysis + Competitive landscape + 
 **API Key Error:**
 ```
 Error: Invalid API key
-Solution: Update config.yaml with valid OpenRouter API key
+Solution: Update config.yaml with valid ZenMux API key
 ```
 
 **Tool Import Error:**
@@ -296,7 +296,7 @@ For detailed debugging, modify orchestrator to show synthesis process:
 
 ```python
 # In orchestrator.py
-synthesis_agent = OpenRouterAgent(silent=False)  # Enable debug output
+synthesis_agent = ZenMuxAgent(silent=False)  # Enable debug output
 ```
 
 ## 📁 Project Structure
@@ -338,9 +338,9 @@ See [LICENSE](LICENSE) file for full details.
 
 ## 🙏 Acknowledgments
 
-- Built with [OpenRouter](https://openrouter.ai/) for LLM API access
+- Built with [ZenMux](https://zenmux.ai/) for LLM API access
 - Uses [uv](https://github.com/astral-sh/uv) for Python package management
-- Inspired by **Grok heavy** mode and advanced multi-agent AI systems
+- Inspired by **SeedCode heavy** mode and advanced multi-agent AI systems
 
 ---
 
