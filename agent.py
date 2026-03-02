@@ -12,10 +12,10 @@ class ZenMuxAgent:
         # Silent mode for orchestrator (suppresses debug output)
         self.silent = silent
         
-        # Initialize OpenAI client with ZenMux
+        # Initialize OpenAI client with OpenRouter
         self.client = OpenAI(
-            base_url=self.config['zenmux']['base_url'],
-            api_key=self.config['zenmux']['api_key']
+            base_url=self.config['openrouter']['base_url'],
+            api_key=self.config['openrouter']['api_key']
         )
         
         # Discover tools dynamically
@@ -32,7 +32,7 @@ class ZenMuxAgent:
         """Make ZenMux API call with tools"""
         try:
             response = self.client.chat.completions.create(
-                model=self.config['zenmux']['model'],
+                model=self.config['openrouter']['model'],
                 messages=messages,
                 tools=self.tools
             )
