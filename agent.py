@@ -1,4 +1,5 @@
 import json
+import os
 import yaml
 from openai import OpenAI
 from tools import discover_tools
@@ -13,9 +14,10 @@ class ZenMuxAgent:
         self.silent = silent
         
         # Initialize OpenAI client with OpenRouter
+        api_key = os.environ.get('OPENROUTER_API_KEY') or self.config['openrouter']['api_key']
         self.client = OpenAI(
             base_url=self.config['openrouter']['base_url'],
-            api_key=self.config['openrouter']['api_key']
+            api_key=api_key
         )
         
         # Discover tools dynamically
