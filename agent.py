@@ -4,7 +4,7 @@ import yaml
 from openai import OpenAI
 from tools import discover_tools
 
-class ZenMuxAgent:
+class GrokAgent:
     def __init__(self, config_path="config.yaml", silent=False):
         # Load configuration
         with open(config_path, 'r') as f:
@@ -13,17 +13,17 @@ class ZenMuxAgent:
         # Silent mode for orchestrator (suppresses debug output)
         self.silent = silent
         
-        # Initialize OpenAI client with OpenRouter
-        api_key = os.environ.get('OPENROUTER_API_KEY') or self.config['openrouter']['api_key']
+        # Initialize OpenAI-compatible client with xAI API
+        api_key = os.environ.get('XAI_API_KEY') or self.config['xai']['api_key']
         self.client = OpenAI(
-            base_url=self.config['openrouter']['base_url'],
+            base_url=self.config['xai']['base_url'],
             api_key=api_key
         )
         
         # Discover tools dynamically
         self.discovered_tools = discover_tools(self.config, silent=self.silent)
         
-        # Build ZenMux tools array
+        # Build tools array (OpenAI-compatible schema)
         self.tools = [tool.to_zenmux_schema() for tool in self.discovered_tools.values()]
         
         # Build tool mapping
@@ -31,10 +31,10 @@ class ZenMuxAgent:
     
     
     def call_llm(self, messages):
-        """Make ZenMux API call with tools"""
+        """Make xAI API call with tools"""
         try:
             response = self.client.chat.completions.create(
-                model=self.config['openrouter']['model'],
+                model=self.config['xai']['model'],
                 messages=messages,
                 tools=self.tools
             )
@@ -88,7 +88,7 @@ class ZenMuxAgent:
         # Track all assistant responses for full content capture
         full_response_content = []
         
-        # Implement agentic loop from ZenMux docs
+        # Implement agentic loop
         max_iterations = self.config.get('agent', {}).get('max_iterations', 10)
         iteration = 0
         
