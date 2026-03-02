@@ -1,13 +1,13 @@
-# OpenRouter API settings (using Grok 4.1)
-openrouter:
-  api_key: "YOUR_OPENROUTER_API_KEY"
-  base_url: "https://openrouter.ai/api/v1"
+# xAI API settings (Grok 4.1 direct)
+xai:
+  api_key: "YOUR_XAI_API_KEY"
+  base_url: "https://api.x.ai/v1"
   
   # IMPORTANT: When selecting a model, ensure it has a high context window (200k+ tokens recommended)
   # The orchestrator can generate large amounts of results from multiple agents that need to be
   # processed together during synthesis. Low context window models may fail or truncate results.
   # Grok 4.1 has a 2M token context window — ideal for multi-agent synthesis.
-  model: "x-ai/grok-4.1"
+  model: "grok-4-1-fast-reasoning"
 
 # System prompt for the agent
 system_prompt: |
